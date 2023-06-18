@@ -1,0 +1,19 @@
+clear;clc;
+cam=webcam();
+cam.Resolution='640x480';
+fotograma=0;
+
+gesto1=zeros(640*480,100)
+
+while fotograma<100
+
+img=snapshot(cam);
+subplot(1,2,1);imshow(img);
+guante=Mask_guante1(img);
+guante=bwareaopen(guante,6000);
+
+subplot(1,2,2);imshow(guante);
+fotograma=fotograma+1;
+end
+
+clear cam

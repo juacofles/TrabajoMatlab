@@ -1,0 +1,7 @@
+clear;clc;
+
+img=imread('img_pru.png');
+imshow(img)
+subplot(1,2,1);imshow(img)
+img2=Mask_Azul(img)
+subplot(1,2,2);imshow(img2)

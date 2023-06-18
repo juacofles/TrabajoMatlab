@@ -1,0 +1,14 @@
+clear;clc;
+load('Datos1.mat')
+load('Datos2.mat')
+load('Datos3.mat')
+
+INPUT=[gesto1 gesto2 gesto3];
+OUTPUT=zeros(3,300);
+OUTPUT(1,1:100)=ones(1,100);
+OUTPUT(2,101:200)=ones(1,100);
+OUTPUT(3,201:300)=ones(1,100);
+Red=patternnet(60);
+Red=train(Red,INPUT,OUTPUT)
+
+save Redcita.mat Red

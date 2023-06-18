@@ -1,0 +1,26 @@
+clear;clc;
+load Redcita.mat
+cam=webcam();
+cam.Resolution='640x480';
+fotograma=0;
+
+while fotograma<100
+img=snapshot(cam);
+subplot(1,2,1);imshow(img);
+guante=Mask_guante1(img);
+guante=bwareaopen(guante,15000);
+subplot(1,2,2);imshow(guante);
+Cat=sim(Red,guante(:))
+
+for i = 1:length(Cat)
+if Cat(i) >= 0.70 && Cat(i) <= 1
+        disp(['Gesto ' num2str(i)]);
+
+        
+end
+end
+
+
+fotograma=fotograma+1;
+end
+clear cam

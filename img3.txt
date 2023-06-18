@@ -1,0 +1,4 @@
+clear;clc
+
+img=imread('img_pru.png');
+imshow(img)
